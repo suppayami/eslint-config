@@ -4,6 +4,8 @@
 
 ## Usage
 
+By default, Vue and React settings are not enabled. You can enable them by importing `reactConfig()` or `vueConfig()` from `@suppayami/eslint-config` or call `suppayami({ react: true })` / `suppayami({ vue: true })`.
+
 ### Install
 `pnpm i -D @suppayami/eslint-config`
 
@@ -18,7 +20,13 @@ With `"type": "module"` in `package.json` (recommended):
 import suppayami from '@suppayami/eslint-config'
 // import { reactConfig, vueConfig } from '@suppayami/eslint-config'
 
-export default await suppayami()
+export default await suppayami({
+	// react: true,
+	// vue: true,
+	// stylistic: false,
+})
+
+// utils for react/vue
 // export default await reactConfig()
 // export default await vueConfig()
 ```

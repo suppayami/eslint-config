@@ -20,6 +20,7 @@ const suppayami = (
 		{
 			rules: {
 				'antfu/top-level-function': 'off',
+				'curly': ['error', 'all'],
 			},
 		},
 		...args,
