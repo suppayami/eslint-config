@@ -1,14 +1,13 @@
+import type { OptionsConfig } from '@antfu/eslint-config'
 import antfu from '@antfu/eslint-config'
 
-interface Options {
-	react: boolean
-	stylistic: boolean
-	vue: boolean
+type Options = Omit<OptionsConfig, 'stylistic'> & {
+	stylistic?: boolean
 }
 
 type RestParameters<F> = F extends (arg0: any, ...rest: infer R) => any ? R : never
 const suppayami = (
-	options: Partial<Options> = { react: false, stylistic: true, vue: false },
+	options: Options = { react: false, vue: false },
 	...args: RestParameters<typeof antfu>
 ) =>
 	antfu(
@@ -29,11 +28,11 @@ const suppayami = (
 export default suppayami
 
 export const reactConfig = (
-	options: Pick<Options, 'stylistic'> = { stylistic: true },
+	options: Omit<Options, 'react'> = {},
 	...args: RestParameters<typeof antfu>
 ) => suppayami({ ...options, react: true }, ...args)
 
 export const vueConfig = (
-	options: Pick<Options, 'stylistic'> = { stylistic: true },
+	options: Omit<Options, 'vue'> = {},
 	...args: RestParameters<typeof antfu>
 ) => suppayami({ ...options, vue: true }, ...args)
