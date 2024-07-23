@@ -37,6 +37,12 @@ const suppayami = (
 				...options?.vue && {
 					'vue/html-indent': ['error', 'tab'],
 				},
+				...options?.react && {
+					'react/prefer-shorthand-fragment': 'off',
+					'react/avoid-shorthand-fragment': 'error',
+					'react/no-default-props': 'error',
+					'react/no-prop-types': 'error',
+				},
 			},
 		},
 		...args,
