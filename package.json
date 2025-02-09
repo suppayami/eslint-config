@@ -1,7 +1,7 @@
 {
 	"name": "@suppayami/eslint-config",
 	"type": "module",
-	"version": "5.0.0",
+	"version": "5.1.0",
 	"packageManager": "pnpm@9.2.0",
 	"description": "Yami's ESLint Config",
 	"author": "Dr.Yami <dr.yami.moe@gmail.com> (https://github.com/suppayami)",
@@ -22,9 +22,9 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsup --format esm --clean --dts",
-		"stub": "tsup --format esm",
-		"dev": "tsup --format esm --watch & eslint-flat-config-viewer",
+		"build": "pnpm build:rolldown",
+		"stub": "pnpm build:rolldown",
+		"dev": "build:rolldown --watch & eslint-flat-config-viewer",
 		"lint": "pnpm run stub && eslint .",
 		"prepack": "pnpm build",
 		"release": "bumpp && pnpm publish",
@@ -48,7 +48,6 @@
 		"eslint-plugin-react-hooks": "^4.6.2",
 		"eslint-plugin-react-refresh": "^0.4.18",
 		"rolldown": "1.0.0-beta.3",
-		"tsup": "^8.3.6",
 		"typescript": "^5.7.3",
 		"unplugin-isolated-decl": "^0.11.0"
 	},
