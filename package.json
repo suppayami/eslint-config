@@ -12,8 +12,7 @@
 	],
 	"exports": {
 		".": {
-			"import": "./dist/index.js",
-			"require": "./dist/index.cjs"
+			"import": "./dist/index.js"
 		}
 	},
 	"main": "./dist/index.js",
@@ -23,9 +22,9 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsup --format esm,cjs --clean --dts",
+		"build": "tsup --format esm --clean --dts",
 		"stub": "tsup --format esm",
-		"dev": "tsup --format esm,cjs --watch & eslint-flat-config-viewer",
+		"dev": "tsup --format esm --watch & eslint-flat-config-viewer",
 		"lint": "pnpm run stub && eslint .",
 		"prepack": "pnpm build",
 		"release": "bumpp && pnpm publish",
